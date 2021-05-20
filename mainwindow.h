@@ -44,7 +44,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    int prueba;
     int contOfProcess;
     int quantum;
     int globalCont = 0;
