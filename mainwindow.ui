@@ -343,10 +343,24 @@ Por favor digite la cantidad de procesos que desea realizar y el quantum o tiemp
            <set>Qt::AlignCenter</set>
           </property>
           <layout class="QGridLayout" name="gridLayout_8">
+           <item row="4" column="0">
+            <widget class="QLabel" name="trLB">
+             <property name="text">
+              <string>Tiempo Restante: </string>
+             </property>
+            </widget>
+           </item>
            <item row="3" column="0">
             <widget class="QLabel" name="ttLB">
              <property name="text">
               <string>Tiempo Transcurrido: </string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="nameLB">
+             <property name="text">
+              <string>ID: </string>
              </property>
             </widget>
            </item>
@@ -364,17 +378,10 @@ Por favor digite la cantidad de procesos que desea realizar y el quantum o tiemp
              </property>
             </widget>
            </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="nameLB">
+           <item row="5" column="0">
+            <widget class="QLabel" name="quantumContLB">
              <property name="text">
-              <string>ID: </string>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="0">
-            <widget class="QLabel" name="trLB">
-             <property name="text">
-              <string>Tiempo Restante: </string>
+              <string>Quantum Cont: </string>
              </property>
             </widget>
            </item>
@@ -433,13 +440,6 @@ Por favor digite la cantidad de procesos que desea realizar y el quantum o tiemp
           </property>
          </widget>
         </item>
-        <item row="0" column="2">
-         <widget class="QLabel" name="quantumContLB">
-          <property name="text">
-           <string>Quantum Cont: 0</string>
-          </property>
-         </widget>
-        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="showResultsPage">
@@ -454,8 +454,8 @@ Por favor digite la cantidad de procesos que desea realizar y el quantum o tiemp
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>98</width>
-             <height>28</height>
+             <width>80</width>
+             <height>20</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_12">

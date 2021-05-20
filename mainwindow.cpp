@@ -131,6 +131,7 @@ void MainWindow::startProcess()
             ui->tmLB->setText("Tiempo Maximo: "+QString::number(processList.at(i).getTimeMax()));
             ui->ttLB->setText("Tiempo Transcurrido: "+QString::number(processList.at(i).getTt()));
             ui->trLB->setText("Tiempo Restante: "+QString::number(tr));
+            ui->quantumContLB->setText("Quantum Cont: "+QString::number(0));
 
             int k;
             for(k=0; k<quantum; ++k)
