@@ -137,7 +137,7 @@ void MainWindow::startProcess()
             ui->quantumContLB->setText("Quantum Cont: "+QString::number(0));
 
             int k;
-            for(k=0; k<quantum; ++k)
+            for(k=0; k<quantum && processList.at(i).getTt()<processList.at(i).getTimeMax(); ++k)
             {
 
 
@@ -185,8 +185,10 @@ void MainWindow::startProcess()
                     }
                 }
 
-                if(processList.at(i).getTt()==processList.at(i).getTimeMax())
-                    break;
+                if(processList.at(i).getTt()<processList.at(i).getTimeMax())
+                {
+
+                }
 
                 if(interFlag||errorFlag)
                     break;
