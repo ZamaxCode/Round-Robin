@@ -184,3 +184,13 @@ void Proceso::setExec(bool value)
 {
     exec = value;
 }
+
+bool Proceso::getWorking() const
+{
+    return working;
+}
+
+void Proceso::setWorking(bool value)
+{
+    working = value;
+}

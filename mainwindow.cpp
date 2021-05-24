@@ -60,6 +60,7 @@ void MainWindow::setProcess(const int &totalProcess)
         p.setBlocked(false);
         p.setError(false);
         p.setExec(false);
+        p.setWorking(false);
         p.setContBlocked(5);
         ui->bcpTW->insertRow(processList.size());
         processList.push_back(p);
@@ -124,6 +125,8 @@ void MainWindow::startProcess()
                 processList[i].setExec(true);
             }
 
+            processList[i].setWorking(true);
+
             int tr=processList.at(i).getTimeMax()-processList.at(i).getTt();
 
             ui->nameLB->setText("ID: "+QString::number(processList.at(i).getId()));
@@ -136,6 +139,8 @@ void MainWindow::startProcess()
             int k;
             for(k=0; k<quantum; ++k)
             {
+
+
                 delay(1000);
 
                 processList[i].setTt(processList.at(i).getTt()+1);
@@ -179,6 +184,9 @@ void MainWindow::startProcess()
                         ++column;
                     }
                 }
+
+                if(processList.at(i).getTt()==processList.at(i).getTimeMax())
+                    break;
 
                 if(interFlag||errorFlag)
                     break;
@@ -232,11 +240,8 @@ void MainWindow::startProcess()
                     }
                     newFlag=false;
                 }
-
-                if(processList.at(i).getTt()==processList.at(i).getTimeMax())
-                    break;
             }
-
+            processList[i].setWorking(false);
             if(k<quantum)
             {
                 if(!interFlag)
@@ -291,7 +296,7 @@ void MainWindow::startProcess()
             ui->tmLB->setText("Tiempo Maximo: -");
             ui->ttLB->setText("Tiempo Transcurrido: -");
             ui->trLB->setText("Tiempo Restante: -");
-
+            ui->quantumContLB->setText("Quantum Cont: -");
 
             delay(1000);
             ++globalCont;
@@ -387,6 +392,7 @@ void MainWindow::startProcess()
     ui->tmLB->setText("Tiempo Maximo: -");
     ui->ttLB->setText("Tiempo Transcurrido: -");
     ui->trLB->setText("Tiempo Restante: -");
+    ui->quantumContLB->setText("Quantum Cont: -");
     QMessageBox msg;
     msg.setText("Simulacion Terminada!");
     msg.exec();
@@ -486,7 +492,11 @@ void MainWindow::setBCP()
             ui->bcpTW->setItem(b,8,new QTableWidgetItem(QString::number(processList.at(b).getTt())));
 
             if(processList.at(b).getExec())
+            {
                 ui->bcpTW->setItem(b,10,new QTableWidgetItem(QString::number(processList.at(b).getRespuesta())));
+                if(processList.at(b).getWorking())
+                    ui->bcpTW->setItem(b,1,new QTableWidgetItem("Ejecucion"));
+            }
             else
                 ui->bcpTW->setItem(b,10,new QTableWidgetItem("-"));
         }

@@ -61,6 +61,9 @@ public:
     bool getExec() const;
     void setExec(bool value);
 
+    bool getWorking() const;
+    void setWorking(bool value);
+
 private:
     char operation;
     int digit1;
@@ -80,6 +83,7 @@ private:
     bool blocked;
     bool error;
     bool exec;
+    bool working;
 };
 
 #endif // PROCESO_H

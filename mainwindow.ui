@@ -31,7 +31,7 @@
        <set>Qt::ImhDigitsOnly</set>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="setProcessPage">
        <layout class="QGridLayout" name="gridLayout_2">
@@ -44,7 +44,9 @@
            </size>
           </property>
           <property name="styleSheet">
-           <string notr="true">font: 14pt &quot;Century Gothic&quot;;</string>
+           <string notr="true">font: 14pt &quot;Century Gothic&quot;;
+
+</string>
           </property>
           <property name="title">
            <string/>
@@ -454,7 +456,7 @@ Por favor digite la cantidad de procesos que desea realizar y el quantum o tiemp
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>80</width>
+             <width>66</width>
              <height>20</height>
             </rect>
            </property>
