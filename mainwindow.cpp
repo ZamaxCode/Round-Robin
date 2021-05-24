@@ -139,8 +139,6 @@ void MainWindow::startProcess()
             int k;
             for(k=0; k<quantum && processList.at(i).getTt()<processList.at(i).getTimeMax(); ++k)
             {
-
-
                 delay(1000);
 
                 processList[i].setTt(processList.at(i).getTt()+1);
@@ -185,13 +183,13 @@ void MainWindow::startProcess()
                     }
                 }
 
-                if(processList.at(i).getTt()<processList.at(i).getTimeMax())
-                {
-
-                }
-
-                if(interFlag||errorFlag)
+                if((interFlag||errorFlag) && processList.at(i).getTt()<processList.at(i).getTimeMax())
                     break;
+                else
+                {
+                    interFlag=false;
+                    errorFlag=false;
+                }
 
                 if(pauseFlag)
                 {
@@ -244,11 +242,10 @@ void MainWindow::startProcess()
                 }
             }
             processList[i].setWorking(false);
-            if(k<quantum)
+            if(processList.at(i).getTt()==processList.at(i).getTimeMax() || k<quantum)
             {
                 if(!interFlag)
                 {
-
                     FinishProcess* fproc = new FinishProcess();
                     if(!errorFlag)
                     {
