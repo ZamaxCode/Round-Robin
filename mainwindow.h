@@ -60,6 +60,7 @@ private:
     QList<Proceso> processList;
     QList<Proceso> blockedList;
     QList<Proceso> finishedList;
+    QList<Proceso> totalProcessList;
 
     void setProcess(const int &totalProcess);
     void startProcess();
