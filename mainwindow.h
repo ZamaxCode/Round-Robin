@@ -47,6 +47,7 @@ private:
     int contOfProcess;
     int quantum;
     int globalCont = 0;
+    int contActualProcess = 1;
     bool interFlag=false;
     bool errorFlag=false;
     bool pauseFlag=false;
@@ -54,7 +55,13 @@ private:
     bool newFlag=false;
     bool bcpFlag=false;
     bool fisrtBCP=false;
+
+    QList<Proceso> pendientList;
     QList<Proceso> processList;
+    QList<Proceso> blockedList;
+    QList<Proceso> finishedList;
+    QList<Proceso> totalProcessList;
+
     void setProcess(const int &totalProcess);
     void startProcess();
     void delay(const int &mSeconds);
